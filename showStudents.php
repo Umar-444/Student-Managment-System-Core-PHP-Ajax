@@ -1,0 +1,42 @@
+<?php
+
+
+include("DB/initi.php");
+									
+
+									$sno=1;
+                                  $sql = "SELECT * FROM studentdata";
+                              
+                                  $result = myQuery($sql);
+                              
+                                  while ($row = myFetchArray($result)) 
+                                  	
+                                  {
+                                  		
+                  						
+                                        echo "<tr>";
+                                        echo "<td scoop='row'>{$sno}</td>";
+                                        echo "<td>{$row['CNIC']}</td>";
+                                        echo "<td>{$row['FName']} {$row['LName']}</td>";
+                                        echo "<td>{$row['DOB']}</td>";
+                                        echo "<td>{$row['Address']}</td>";
+                                        echo "<td>{$row['City']}</td>";
+                                        echo "<td>{$row['DProgram']}</td>";
+                                        echo "<td>{$row['Sex']}</td>";
+                                        echo "<td>{$row['Email']}</td>";
+                                        echo "<td>{$row['Mobile']}</td>";
+                                        echo "<td><button type='button' class='btn btn-primary editData' id='{$row['ID']}' data-toggle='modal' data-target='.bd-example-modal-lg'>Update</button>
+                                        <button type='button' class='btn btn-danger' onclick='deleteStudent({$row['ID']})'>Delete</button></td>";
+                                         echo "</tr>";
+                                         $sno++;
+                                        
+                                        
+                                      }
+
+
+
+
+
+
+
+?>
